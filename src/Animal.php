@@ -8,18 +8,18 @@ abstract class Animal implements AnimalInterface
     protected $productMaxPerDay;
     protected $productionType;
 
-    public function collectProducts()
+    public function collectProducts(): int
     {
         return rand($this->productMinPerDay, $this->productMaxPerDay);
     }
 
-    public function getType()
+    public function getType(): string
     {
         $reflect = new \ReflectionClass($this);
         return $reflect->getShortName();
     }
 
-    public function getTypeOfProducts()
+    public function getTypeOfProducts(): string
     {
         return $this->productionType;
     }

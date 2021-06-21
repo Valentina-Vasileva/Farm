@@ -8,34 +8,26 @@ class Farm
     private $animals;
     private $uniqueId = 1;
 
-    public function __construct($animals = [])
+    public function __construct(array $animals = [])
     {
         $registredAnimals = array_map(function ($animalsCount) {
-                $registrationNumbers = [];
+            $registrationNumbers = [];
             for ($i = 1; $i <= $animalsCount; $i++) {
                 $registrationNumbers[] = $this->uniqueId;
                 $this->uniqueId += 1;
             }
-
-                return $registrationNumbers;
+            return $registrationNumbers;
         }, $animals);
 
         $this->animals = $registredAnimals;
     }
 
-    public function getAnimalsCount()
+    public function getAnimalsCount(): array
     {
-        $count = array_map(
-            function ($animal) {
-                return count($animal);
-            },
-            $this->animals
-        );
-
-        return $count;
+        return array_map(fn($animal) => count($animal), $this->animals);
     }
 
-    public function collectProducts()
+    public function collectProducts(): void
     {
         foreach ($this->animals as $animalName => $numbers) {
             foreach ($numbers as $number) {
@@ -53,17 +45,16 @@ class Farm
         }
     }
 
-    public function getStoreInfo()
+    public function getStoreInfo(): array
     {
-        $store = $this->store;
-        return $store;
+        return $this->store;
     }
 
-    public function add(AnimalInterface $animal)
+    public function add(AnimalInterface $animal): void
     {
         $typeOfAnimal = $animal->getType();
         $registrationNumber = $this->uniqueId;
-        $this->uniqueId++;
+        $this->uniqueId += 1;
         $this->animals[$typeOfAnimal][] = $registrationNumber;
     }
 }
