@@ -19,7 +19,7 @@ abstract class Animal implements AnimalInterface
         return $reflect->getShortName();
     }
 
-    public function getTypeOfProducts(): string
+    public function getProductionType(): string
     {
         return $this->productionType;
     }

@@ -34,7 +34,7 @@ class Farm
                 $animalClass = "App\\{$animalName}";
                 $animal = new $animalClass();
                 $newProduction = $animal->collectProducts();
-                $typeOfProduct = $animal->getTypeOfProducts();
+                $typeOfProduct = $animal->getProductionType();
 
                 if (array_key_exists($typeOfProduct, $this->store)) {
                     $this->store[$typeOfProduct] = $this->store[$typeOfProduct] + $newProduction;
