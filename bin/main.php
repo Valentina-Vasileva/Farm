@@ -14,7 +14,7 @@ if (file_exists($autoloadPath1)) {
     include_once $autoloadPath2;
 }
 
-$farm = new Farm(['Cow' => 10, 'Chicken' => 20]);
+$farm = new Farm([Cow::class => 10, Chicken::class => 20]);
 
 print_r($farm->getAnimalsCount());
 
