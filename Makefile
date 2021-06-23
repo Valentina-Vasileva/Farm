@@ -6,3 +6,6 @@ lint-fix:
 
 setup:
 	composer install
+	
+start:
+	php bin/main.php

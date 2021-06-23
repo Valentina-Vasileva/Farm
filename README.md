@@ -4,4 +4,4 @@
 3. `$ make setup`
 
 #### Запуск:
-1. `$ php bin/main.php`
+1. `$ make start`
