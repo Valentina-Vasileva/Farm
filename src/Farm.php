@@ -5,7 +5,7 @@ namespace App;
 class Farm
 {
     private $store = [];
-    private $animals;
+    private $animals = [];
 
     public function __construct(array $animals = [])
     {
