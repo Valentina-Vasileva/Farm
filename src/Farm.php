@@ -18,9 +18,7 @@ class Farm
     }
 
     public function getAnimalsCount(): array
-    {
-        $animals = $this->animals;
-
+    {   
         return array_reduce($this->animals, function ($acc, $animal) {
             $type = $animal->getType();
             if (array_key_exists($type, $acc)) {
